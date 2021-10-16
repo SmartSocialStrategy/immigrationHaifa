@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.5.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-map-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#map {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+#deckgl-overlay {
+  z-index: 2;
+  background: none;
+}
+
+#deck-map-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const jsonInput = {"initialViewState": {"bearing": 45, "latitude": 32.81066, "longitude": 34.9978, "pitch": 50, "zoom": 8}, "layers": [{"@@type": "ArcLayer", "autoHighlight": true, "data": [{" total in": 24, " total out": 58, "East": 35.07250000000005, "East_Hadar": 34.99780000000004, "North": 32.84937000000008, "North_Hadar": 32.81066000000004, "Unnamed: 0": 0, "city symbol": 9600, "color": "red", "deficit": -34, "deficit2": 16, "total_activity": 82, "town name": "\u05e7\u05e8\u05d9\u05d9\u05ea \u05d9\u05dd"}, {" total in": 13, " total out": 50, "East": 35.04328000000004, "East_Hadar": 34.99780000000004, "North": 32.77216000000004, "North_Hadar": 32.81066000000004, "Unnamed: 0": 3, "city symbol": 2500, "color": "red", "deficit": -37, "deficit2": 13, "total_activity": 63, "town name": "\u05e0\u05e9\u05e8"}, {" total in": 6, " total out": 19, "East": 35.08179000000007, "East_Hadar": 34.99780000000004, "North": 32.83946000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 4, "city symbol": 8200, "color": "red", "deficit": -13, "deficit2": 37, "total_activity": 25, "town name": "\u05e7\u05e8\u05d9\u05d9\u05ea \u05de\u05d5\u05e6\u05e7\u05d9\u05df"}, {" total in": 8, " total out": 35, "East": 35.09253000000007, "East_Hadar": 34.99780000000004, "North": 32.84159000000005, "North_Hadar": 32.81066000000004, "Unnamed: 0": 5, "city symbol": 9500, "color": "red", "deficit": -27, "deficit2": 23, "total_activity": 43, "town name": "\u05e7\u05e8\u05d9\u05d9\u05ea \u05d1\u05d9\u05d0\u05dc\u05d9\u05e7"}, {" total in": 15, " total out": 23, "East": 34.85480000000007, "East_Hadar": 34.99780000000004, "North": 32.30810000000002, "North_Hadar": 32.81066000000004, "Unnamed: 0": 6, "city symbol": 7400, "color": "red", "deficit": -8, "deficit2": 42, "total_activity": 38, "town name": "\u05e0\u05ea\u05e0\u05d9\u05d4"}, {" total in": 6, " total out": 19, "East": 35.10460000000006, "East_Hadar": 34.99780000000004, "North": 32.80533000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 8, "city symbol": 6800, "color": "red", "deficit": -13, "deficit2": 37, "total_activity": 25, "town name": "\u05e7\u05e8\u05d9\u05d9\u05ea \u05d0\u05ea\u05d0"}, {" total in": 3, " total out": 19, "East": 35.09920000000005, "East_Hadar": 34.99780000000004, "North": 33.01214000000004, "North_Hadar": 32.81066000000004, "Unnamed: 0": 11, "city symbol": 9100, "color": "red", "deficit": -16, "deficit2": 34, "total_activity": 22, "town name": "\u05e0\u05d4\u05e8\u05d9\u05d9\u05d4"}, {" total in": 6, " total out": 18, "East": 34.96707000000004, "East_Hadar": 34.99780000000004, "North": 32.76711000000006, "North_Hadar": 32.81066000000004, "Unnamed: 0": 15, "city symbol": 2100, "color": "red", "deficit": -12, "deficit2": 38, "total_activity": 24, "town name": "\u05d8\u05d9\u05e8\u05ea \u05db\u05e8\u05de\u05dc"}, {" total in": 4, " total out": 16, "East": 34.81498000000005, "East_Hadar": 34.99780000000004, "North": 32.08364000000006, "North_Hadar": 32.81066000000004, "Unnamed: 0": 18, "city symbol": 8600, "color": "red", "deficit": -12, "deficit2": 38, "total_activity": 20, "town name": "\u05e8\u05de\u05ea \u05d2\u05df"}, {" total in": 10, " total out": 22, "East": 34.88576000000006, "East_Hadar": 34.99780000000004, "North": 32.09463000000005, "North_Hadar": 32.81066000000004, "Unnamed: 0": 19, "city symbol": 7900, "color": "red", "deficit": -12, "deficit2": 38, "total_activity": 32, "town name": "\u05e4\u05ea\u05d7 \u05ea\u05e7\u05d5\u05d5\u05d4"}, {" total in": 0, " total out": 8, "East": 34.78247000000005, "East_Hadar": 34.99780000000004, "North": 32.01121000000006, "North_Hadar": 32.81066000000004, "Unnamed: 0": 25, "city symbol": 6600, "color": "red", "deficit": -8, "deficit2": 42, "total_activity": 8, "town name": "\u05d7\u05d5\u05dc\u05d5\u05df"}, {" total in": 0, " total out": 3, "East": 35.27826000000005, "East_Hadar": 34.99780000000004, "North": 33.01332000000008, "North_Hadar": 32.81066000000004, "Unnamed: 0": 26, "city symbol": 1063, "color": "red", "deficit": -3, "deficit2": 47, "total_activity": 3, "town name": "\u05de\u05e2\u05dc\u05d5\u05ea-\u05ea\u05e8\u05e9\u05d9\u05d7\u05d0"}, {" total in": 0, " total out": 4, "East": 34.94425000000007, "East_Hadar": 34.99780000000004, "North": 32.69578000000007, "North_Hadar": 32.81066000000004, "Unnamed: 0": 27, "city symbol": 53, "color": "red", "deficit": -4, "deficit2": 46, "total_activity": 4, "town name": "\u05e2\u05ea\u05dc\u05d9\u05ea"}, {" total in": 0, " total out": 1, "East": 34.81131000000005, "East_Hadar": 34.99780000000004, "North": 31.89550000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 28, "city symbol": 8400, "color": "red", "deficit": -1, "deficit2": 49, "total_activity": 1, "town name": "\u05e8\u05d7\u05d5\u05d1\u05d5\u05ea"}], "getSourceColor": [240, 100, 0, 40], "getSourcePosition": "@@=[East_Hadar, North_Hadar]", "getTargetColor": [240, 100, 0, 40], "getTargetPosition": "@@=[East, North]", "getTilt": 40, "getWidth": "@@=total_activity/2", "id": "a45ed81e-ee21-4b94-af19-b3852b1adc6e", "pickable": true}, {"@@type": "ArcLayer", "autoHighlight": true, "data": [{" total in": 18, " total out": 2, "East": 35.29579000000007, "East_Hadar": 34.99780000000004, "North": 32.90896000000004, "North_Hadar": 32.81066000000004, "Unnamed: 0": 1, "city symbol": 1139, "color": "green", "deficit": 16, "deficit2": 66, "total_activity": 20, "town name": "\u05db\u05e8\u05de\u05d9\u05d0\u05dc"}, {" total in": 37, " total out": 32, "East": 34.80863000000005, "East_Hadar": 34.99780000000004, "North": 32.08413000000007, "North_Hadar": 32.81066000000004, "Unnamed: 0": 2, "city symbol": 5000, "color": "green", "deficit": 5, "deficit2": 55, "total_activity": 69, "town name": "\u05ea\u05dc \u05d0\u05d1\u05d9\u05d1 -\u05d9\u05e4\u05d5"}, {" total in": 19, " total out": 9, "East": 35.21873000000005, "East_Hadar": 34.99780000000004, "North": 31.78003000000007, "North_Hadar": 32.81066000000004, "Unnamed: 0": 7, "city symbol": 3000, "color": "green", "deficit": 10, "deficit2": 60, "total_activity": 28, "town name": "\u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd"}, {" total in": 11, " total out": 6, "East": 34.79079000000007, "East_Hadar": 34.99780000000004, "North": 31.23616000000004, "North_Hadar": 32.81066000000004, "Unnamed: 0": 9, "city symbol": 9000, "color": "green", "deficit": 5, "deficit2": 55, "total_activity": 17, "town name": "\u05d1\u05d0\u05e8 \u05e9\u05d1\u05e2"}, {" total in": 15, " total out": 7, "East": 34.74874000000005, "East_Hadar": 34.99780000000004, "North": 32.01388000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 10, "city symbol": 6200, "color": "green", "deficit": 8, "deficit2": 58, "total_activity": 22, "town name": "\u05d1\u05ea \u05d9\u05dd"}, {" total in": 16, " total out": 12, "East": 34.95305000000008, "East_Hadar": 34.99780000000004, "North": 29.55002000000007, "North_Hadar": 32.81066000000004, "Unnamed: 0": 12, "city symbol": 2600, "color": "green", "deficit": 4, "deficit2": 54, "total_activity": 28, "town name": "\u05d0\u05d9\u05dc\u05ea"}, {" total in": 9, " total out": 3, "East": 35.31020000000007, "East_Hadar": 34.99780000000004, "North": 32.61944000000005, "North_Hadar": 32.81066000000004, "Unnamed: 0": 13, "city symbol": 7700, "color": "green", "deficit": 6, "deficit2": 56, "total_activity": 12, "town name": "\u05e2\u05e4\u05d5\u05dc\u05d4"}, {" total in": 14, " total out": 8, "East": 34.79437000000007, "East_Hadar": 34.99780000000004, "North": 31.97691000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 14, "city symbol": 8300, "color": "green", "deficit": 6, "deficit2": 56, "total_activity": 22, "town name": "\u05e8\u05d0\u05e9\u05d5\u05df \u05dc\u05e6\u05d9\u05d5\u05df"}, {" total in": 10, " total out": 5, "East": 35.08587000000006, "East_Hadar": 34.99780000000004, "North": 32.92343000000005, "North_Hadar": 32.81066000000004, "Unnamed: 0": 16, "city symbol": 7600, "color": "green", "deficit": 5, "deficit2": 55, "total_activity": 15, "town name": "\u05e2\u05db\u05d5"}, {" total in": 6, " total out": 0, "East": 34.56970000000007, "East_Hadar": 34.99780000000004, "North": 31.66667000000007, "North_Hadar": 32.81066000000004, "Unnamed: 0": 17, "city symbol": 7100, "color": "green", "deficit": 6, "deficit2": 56, "total_activity": 6, "town name": "\u05d0\u05e9\u05e7\u05dc\u05d5\u05df"}, {" total in": 9, " total out": 4, "East": 34.65732000000003, "East_Hadar": 34.99780000000004, "North": 31.80793000000006, "North_Hadar": 32.81066000000004, "Unnamed: 0": 20, "city symbol": 70, "color": "green", "deficit": 5, "deficit2": 55, "total_activity": 13, "town name": "\u05d0\u05e9\u05d3\u05d5\u05d3"}, {" total in": 9, " total out": 0, "East": 35.52531000000005, "East_Hadar": 34.99780000000004, "North": 32.78769000000005, "North_Hadar": 32.81066000000004, "Unnamed: 0": 21, "city symbol": 6700, "color": "green", "deficit": 9, "deficit2": 59, "total_activity": 9, "town name": "\u05d8\u05d1\u05e8\u05d9\u05d4"}, {" total in": 7, " total out": 0, "East": 35.32368000000002, "East_Hadar": 34.99780000000004, "North": 32.70789000000008, "North_Hadar": 32.81066000000004, "Unnamed: 0": 22, "city symbol": 1061, "color": "green", "deficit": 7, "deficit2": 57, "total_activity": 7, "town name": "\u05e0\u05d5\u05e3 \u05d4\u05d2\u05dc\u05d9\u05dc"}, {" total in": 6, " total out": 0, "East": 34.91744000000006, "East_Hadar": 34.99780000000004, "North": 32.43983000000003, "North_Hadar": 32.81066000000004, "Unnamed: 0": 23, "city symbol": 6500, "color": "green", "deficit": 6, "deficit2": 56, "total_activity": 6, "town name": "\u05d7\u05d3\u05e8\u05d4"}, {" total in": 6, " total out": 3, "East": 34.84064000000006, "East_Hadar": 34.99780000000004, "North": 32.16385000000002, "North_Hadar": 32.81066000000004, "Unnamed: 0": 24, "city symbol": 6400, "color": "green", "deficit": 3, "deficit2": 53, "total_activity": 9, "town name": "\u05d4\u05e8\u05e6\u05dc\u05d9\u05d9\u05d4"}], "getSourceColor": [0, 255, 0, 40], "getSourcePosition": "@@=[East_Hadar, North_Hadar]", "getTargetColor": [0, 255, 0, 40], "getTargetPosition": "@@=[East, North]", "getTilt": -25, "getWidth": "@@=total_activity/2", "id": "96c24fec-0820-4fb1-a467-a2ab65cd236c", "pickable": true}], "mapProvider": "carto", "mapStyle": "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", "views": [{"@@type": "MapView", "controller": true}]};
+    const tooltip = {'html': '{deficit} Immigration (Entering { total in} - Exiting { total out}) From/To {town name}'};
+    const customLibraries = null;
+
+    const deckInstance = createDeck({
+                  container: document.getElementById('deck-container'),
+      jsonInput,
+      tooltip,
+      customLibraries
+    });
+
+  </script>
+</html>
