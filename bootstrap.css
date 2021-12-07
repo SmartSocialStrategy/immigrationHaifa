@@ -11482,3 +11482,14 @@ fieldset:disabled .btn {
 .Select-menu-outer {
   background-color: rgb(25, 25, 25);
 }
+
+.VirtualizedSelectOption {
+  background-color: LightGreen;
+  color: black;
+}
+
+.VirtualizedSelectFocusedOption {
+  background-color: green;
+  font-size: 18px;
+  color: white;
+}
