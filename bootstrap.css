@@ -11476,11 +11476,11 @@ fieldset:disabled .btn {
   background-color: #303030;
 }
 .Select-control {
-  background-color: rgb(25, 25, 25) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .Select-menu-outer {
-  background-color: rgb(25, 25, 25);
+  background-color: rgb(255, 255, 255);
 }
 
 .VirtualizedSelectOption {
@@ -11499,3 +11499,4 @@ fieldset:disabled .btn {
 .Select-value-label {
   color: white;
 }
+
