@@ -11484,12 +11484,12 @@ fieldset:disabled .btn {
 }
 
 .VirtualizedSelectOption {
-  background-color: LightGreen;
-  color: black;
+  background-color: #12141d;
+  color: white;
 }
 
 .VirtualizedSelectFocusedOption {
-  background-color: green;
+  background-color: #12141d;
   font-size: 18px;
   color: white;
 }
