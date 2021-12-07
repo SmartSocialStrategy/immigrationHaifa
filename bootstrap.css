@@ -11495,3 +11495,7 @@ fieldset:disabled .btn {
   color: white;
   direction : rtl;
 }
+
+.Select-value-label {
+  color: white;
+}
