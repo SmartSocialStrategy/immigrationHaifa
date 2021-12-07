@@ -11500,3 +11500,15 @@ fieldset:disabled .btn {
   color: white;
 }
 
+.has-value.Select--single{
+  color: white;
+}
+.Select-value{
+  color: white;
+} 
+.has-value.is-pseudo-focused.Select--single{
+  color: white;
+}
+.Select-value .Select-value-label{
+  color: white;
+}
