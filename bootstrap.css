@@ -11512,3 +11512,7 @@ fieldset:disabled .btn {
 .Select-value .Select-value-label{
   color: white;
 }
+
+.inputStyle{
+  margin-right: 20px
+}
